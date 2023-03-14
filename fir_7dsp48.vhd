@@ -10,7 +10,7 @@ generic(
         OUTDATA_WIDTH    : integer range 1 to 43 := 16;
         TRUNCATION       : integer range 0 to 43:= 16;
         FILT_DEPTH       : integer := 64;
-        CoefsFile        : string:="test.txt"
+        CoefsFile        : string:="F:/works/_source/_fir/testcoef.data"
         );
 port(
         clk_main         : in std_logic;

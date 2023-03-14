@@ -1,5 +1,5 @@
 
-
+`timescale 1ns/1ps
 
 module ADD_PRE_MULT_PRIM
 (

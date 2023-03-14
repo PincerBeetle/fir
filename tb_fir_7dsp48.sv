@@ -4,8 +4,7 @@ module tb_fir_7dsp48
     real clk_period=10,//ns
     int  FILT_DEPTH=64,
     int  FILT_WIDTH=16,
-    //string file_name="test.txt"
-    string file_name="test.txt"
+    string file_name="F:/works/_source/_fir/testcoef.txt"
 );
 
 logic clk_main=1'b0;
@@ -110,7 +109,6 @@ always_ff @( posedge clk_main ) begin : compare
     
     S2:begin
         imp_done<=1'b1;
-        error<=0;
         if(cntr<FILT_DEPTH+9) begin
             cntr<=cntr+1;
             state<=S2;
@@ -122,6 +120,7 @@ always_ff @( posedge clk_main ) begin : compare
             cntr<=0;
             indata_vld<=1'b1;
             datain<=16'd1;
+            error<=0;
         end
     end
 
