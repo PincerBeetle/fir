@@ -1,6 +1,6 @@
 module fir_7dsp48
 #(
-    CoefsFile="F:/works/_source/_fir/testcoef.txt",
+    CoefsFile="testcoef.txt",
     int INDATA_WIDTH=16,
     int OUTDATA_WIDTH=16,
     int TRUNCATION=16,
@@ -31,7 +31,9 @@ logic [15:0] COEF_MEM  [FILT_DEPTH/2-1:0];
 initial begin
     $readmemb(CoefsFile, COEF_FILT);
     for (int h=0; h <= FILT_DEPTH/2-1; h++) begin
-        COEF_MEM[h] = COEF_FILT[h]; 
+        COEF_MEM[h] = COEF_FILT[h];
+        taps_reg[h] = 0;
+        taps_reg[FILT_DEPTH-1-h] = 0;
     end
 end
 

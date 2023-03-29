@@ -10,7 +10,7 @@ generic(
         OUTDATA_WIDTH    : integer range 1 to 43 := 16;
         TRUNCATION       : integer range 0 to 43:= 16;
         FILT_DEPTH       : integer := 64;
-        CoefsFile        : string:="F:/works/_source/_fir/testcoef.data"
+        CoefsFile        : string:="testcoef.txt"
         );
 port(
         clk_main         : in std_logic;
@@ -65,7 +65,7 @@ type taps_type is array (integer range 0 to FILT_DEPTH-1) of std_logic_vector(IN
 type taps_array is array (integer range 0 to 3*(FILT_DEPTH/2)-1) of std_logic_vector(INDATA_WIDTH-1 downto 0);
 type taps_array2 is array (integer range 0 to FILT_DEPTH/2-1) of taps_array;
 
-signal taps_reg         : taps_type;
+signal taps_reg         : taps_type:=(others=>(others=>'0'));
 signal reg_data_pre0    : taps_array2;
 signal reg_data_pre1    : taps_array2;
 signal preadd_in0       : taps_type;
